@@ -180,5 +180,10 @@ namespace MonkeysMVVM.Services
         {
             monkeys.Remove(monkey);
         }
+
+        public async Task<List<Monkey>> GetMonkeysByLocation(string location)
+        {
+            return monkeys.Where(m => m.Location == location).ToList();
+        }
     }
 }
