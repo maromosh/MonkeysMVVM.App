@@ -155,11 +155,12 @@ namespace MonkeysMVVM.Services
                 ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Gelada-Pavian.jpg/320px-Gelada-Pavian.jpg"
             });
         }
-    }
 
+        
+    }
     public class MonkeysService
     {
-        public MonkeysService() 
+        public MonkeysService()
         {
             monkeys = new MonkeyList().Monkeys;
         }
@@ -176,7 +177,7 @@ namespace MonkeysMVVM.Services
             monkeys.Add(monkey);
         }
 
-        public void RemoveMonkey(Monkey monkey) 
+        public void RemoveMonkey(Monkey monkey)
         {
             monkeys.Remove(monkey);
         }

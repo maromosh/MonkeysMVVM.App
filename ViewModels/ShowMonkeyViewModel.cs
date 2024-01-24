@@ -9,19 +9,9 @@ using System.Threading.Tasks;
 
 namespace MonkeysMVVM.ViewModels
 {
-    public class ShowMonkeyViewModel:INotifyPropertyChanged
+    public class ShowMonkeyViewModel:ViewModelBase
     {
-        #region INotifyPropertyChanged
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        #endregion
-
+        
         private string name;
         public string Name 
         { 

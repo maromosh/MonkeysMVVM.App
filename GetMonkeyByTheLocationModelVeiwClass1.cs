@@ -1,17 +1,24 @@
-﻿using MonkeysMVVM.Models;
-using MonkeysMVVM.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using static MonkeysMVVM.Services.MonkeyList;
 
-namespace MonkeysMVVM.ViewModels
+namespace MonkeysMVVM
 {
-    public class ShowMonkeysByLocationViewModel : ViewModelBase
+    internal class GetMonkeyByTheLocationModelVeiwClass1 : INotifyPropertyChanged
     {
+        #region INotifyPropertyChanged
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion
         private string name;
         public string Name
         {
@@ -56,28 +63,12 @@ namespace MonkeysMVVM.ViewModels
         }
 
         public Command GetMonkeyCommand { get; set; }
-
-        public ShowMonkeysByLocationViewModel()
+        public GetMonkeyByTheLocationModelVeiwClass1()
         {
-            GetMonkeyCommand = new Command(GetMonkey);
+            
         }
 
-        private async void GetMonkey()
-        {
-            MonkeysService service = new MonkeysService();
-            List<Monkey> list = await service.GetMonkeysByLocation(Location);
-            OverAllMonkeys = list.Count;
-            if (list.Count > 0)
-            {
-                Name = list[0].Name;
-                Location = list[0].Location;
-                ImageUrl = list[0].ImageUrl;
-            }
-            else
-            {
-                Name = "Not Found!";
-                ImageUrl = "";
-            }
-        }
+        
+
     }
 }
